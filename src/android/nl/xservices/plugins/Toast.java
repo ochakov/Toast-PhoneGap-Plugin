@@ -102,16 +102,6 @@ public class Toast extends CordovaPlugin {
               "short".equalsIgnoreCase(duration) ? android.widget.Toast.LENGTH_SHORT : android.widget.Toast.LENGTH_LONG
           );
 
-          toast.addCallback(new android.widget.Toast.Callback(){
-            public void onToastShown() {
-
-            }
-
-            public void onToastHidden() {
-              returnTapEvent("hide", msg, data, callbackContext);
-            }
-          });
-
           if ("top".equals(position)) {
             toast.setGravity(GRAVITY_TOP, 0, BASE_TOP_BOTTOM_OFFSET + addPixelsY);
           } else  if ("bottom".equals(position)) {
